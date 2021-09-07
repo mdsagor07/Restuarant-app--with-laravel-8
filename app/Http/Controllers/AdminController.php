@@ -9,7 +9,14 @@ class AdminController extends Controller
 {
     public function user()
     {
-        $data=user::all();
+        $data=user::all(); 
         return view("admin.user",compact("data"));
+    }
+
+    public function deleteuser($id)
+    {
+        $data=user::find($id);
+        $data->delete();
+        return redirect()->back();
     }
 }
