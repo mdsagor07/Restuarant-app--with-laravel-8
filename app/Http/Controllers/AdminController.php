@@ -28,6 +28,10 @@ class AdminController extends Controller
     }
     public function upload( Request $request )
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $data= new food;
         $image=$request->image;
         $imageName = time().'.'.$request->image->extension(); 
@@ -40,7 +44,9 @@ class AdminController extends Controller
         $data->description=$request->description;
         $data->save();
 
-        return redirect()->back(); 
+        return back()
+        ->with('success','You have successfully upload image.')
+        ->with('image',$imageName);
 
         
         

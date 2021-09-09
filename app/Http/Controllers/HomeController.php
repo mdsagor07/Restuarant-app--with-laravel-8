@@ -9,8 +9,9 @@ use App\Models\food;
 class HomeController extends Controller
 {
     public function index(){
+        $data=food::all();
 
-        return view("home");
+        return view("home",compact("data"));
     }
     public function redirects(){
 
