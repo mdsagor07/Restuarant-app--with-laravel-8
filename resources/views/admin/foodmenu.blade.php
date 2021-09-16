@@ -34,6 +34,24 @@
              </div>
 
        </form>
+       <div>
+         <table bgcolor="black">
+           <tr>
+             <th style="padding:30px">Food Name</th>
+             <th  style="padding:30px">Price</th>
+             <th  style="padding:30px">Description</th>
+             <th  style="padding:30px">Image</th>
+           </tr>
+           @foreach($data as $data)
+           <tr align="center">
+             <td>{{$data->title}}</td>
+             <td>{{$data->price}}</td>
+             <td>{{$data->description}}</td>
+             <td > <img height="100" width="100" src="/foodimage/{{$data->image}}" alt="image"></td>
+           </tr>
+           @endforeach
+         </table>
+       </div>
        
 
 </div>
