@@ -28,7 +28,9 @@ Route:: get("/foodmenu",[AdminController:: class,"foodmenu"]);
 
 Route:: post("/uploadfood",[AdminController:: class,"upload"]);
 
+Route:: post("/update/{id}",[AdminController:: class,"update"]);
 
+Route:: get("/updateview/{id}",[AdminController:: class,"updateview"]);
 Route:: get("/deleteuser/{id}",[AdminController:: class,"deleteuser"]);
 
 
