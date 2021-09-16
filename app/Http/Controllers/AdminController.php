@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\food;
+use App\Models\Reservation;
+
 
 class AdminController extends Controller
 {
@@ -32,6 +34,8 @@ class AdminController extends Controller
         $data=food::find($id);
         return view("admin.updateview",compact("data"));
     }
+
+   
 
     public function update(Request $request,$id)
     {
@@ -86,5 +90,29 @@ class AdminController extends Controller
 
         
         
+    }
+
+
+    public function reservation(Request $request)
+    {
+       
+
+        $data= new reservation;
+      
+    
+        $data->name=$request->name;
+        $data->email=$request->email;
+        $data->phone=$request->phone;
+        $data->guest=$request->guest;
+        $data->date=$request->date;
+        $data->time=$request->time;
+        $data->message=$request->message;
+        
+        
+        $data->save();
+
+        return redirect()->back();
+       
+
     }
 }
