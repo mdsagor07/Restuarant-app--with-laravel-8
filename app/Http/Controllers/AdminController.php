@@ -97,7 +97,7 @@ class AdminController extends Controller
     {
        
 
-        $data= new reservation;
+        $data= new Reservation;
       
     
         $data->name=$request->name;
@@ -114,5 +114,12 @@ class AdminController extends Controller
         return redirect()->back();
        
 
+    }
+
+    public function viewreservation()
+    {
+
+        $data= reservation:: all();
+        return view("admin.adminreservation",compact("data"));
     }
 }
